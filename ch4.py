@@ -23,10 +23,20 @@ def max(list):
     sub_max = max(list[1:])
     return list[0] if list[0] > sub_max else sub_max
 
+# quick sort 
+def quicksort(array):
+    if len(array) < 2: # base case
+        return array
+    else:
+        pivot = array[0]
+        less = [i for i in array[1:] if i <= pivot] #subarray of elements less than pivot
+        greater = [i for i in array[1:] if i > pivot] #subarray of elements greater than pivot
+        return quicksort(less) + [pivot] + quicksort(greater)
         
 
 # test 
-nums = [1,2,3,10,4,12,60]
+nums = [1,2,3,10,4,12,60,-7,23]
 print( sum(nums) )
 print( count(nums) )
 print( max(nums) )
+print( quicksort(nums) )
